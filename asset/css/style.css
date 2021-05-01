@@ -1,3 +1,8 @@
+:root {
+  /* Color */
+  --color-gray: #bcbcbc;
+}
+
 .main--center {
   display: flex;
   flex-direction: column;

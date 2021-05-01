@@ -26,7 +26,6 @@
 .todolist-order {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   text-align: center;
   border: 1px solid;
@@ -34,7 +33,7 @@
   overflow: auto;
 }
 .todolist-order input {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .todolist-order ul {
@@ -43,7 +42,6 @@
 }
 
 .todolist-order li {
-  margin-bottom: 10px;
   list-style: none;
 }
 
@@ -66,4 +64,9 @@
 
 .todolist__ul input {
   margin-right: 10px;
+}
+
+.todolist__ul input[type="checkbox"]:checked + span {
+  text-decoration: line-through;
+  color: var(--color-gray);
 }
