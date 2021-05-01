@@ -8,6 +8,7 @@ const toDoListMain = document.querySelector(".js-todolist--main"),
 const TODOS_LS = "todos";
 let toDos = [];
 
+// 로컬스토리지 저장
 function saveToDos() {
   localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
 }

@@ -46,8 +46,7 @@
 }
 
 .editBtn {
-  background: url(/asset/image/edit.svg);
-  background-color: white;
+  background: url(/asset/img/icon/edit.svg);
   border: none;
   width: 13px;
   height: 13px;
@@ -55,7 +54,7 @@
 }
 
 .delBtn {
-  background: url(/asset/image/trash.svg);
+  background: url(/asset/img/icon/trash.svg);
   border: none;
   width: 13px;
   height: 13px;
