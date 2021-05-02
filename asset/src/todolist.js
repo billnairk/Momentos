@@ -42,14 +42,39 @@ function toDoDelete(target) {
 }
 
 // 수정버튼
-function toDoEdit() {
-  console.log("Edit Btn");
+// selection은 target의 텍스트를 선택하고, 커서 위치를 정하기 위해 사용
+function toDoEdit(target) {
+  const content = target.previousSibling;
+  content.setAttribute("contentEditable", "true");
+  const caret = window.getSelection();
+  caret.selectAllChildren(content);
+  caret.collapseToEnd();
+  content.addEventListener("keydown", (typing) => {
+    if (typing.key == "Enter") {
+      const toDoIdFromIndex = toDos.findIndex(
+        (i) => i.toDoId == target.parentNode.dataset.id
+      );
+      content.setAttribute("contentEditable", "false");
+      toDos[toDoIdFromIndex].toDoText = content.innerText.trim();
+      saveToDos();
+    }
+  });
+  content.addEventListener("blur", (typing) => {
+    const toDoIdFromIndex = toDos.findIndex(
+      (i) => i.toDoId == target.parentNode.dataset.id
+    );
+    content.setAttribute("contentEditable", "false");
+    toDos[toDoIdFromIndex].toDoText = content.innerText.trim();
+    saveToDos();
+  });
+  saveToDos();
 }
 
 function paintToDoList(toDo, toDoId, checked) {
   const li = document.createElement("li");
   const span = document.createElement("span");
-  span.innerText = toDo;
+  span.innerText = toDo.trim();
+  span.setAttribute("class", "todo-content");
   const editBtn = document.createElement("button");
   editBtn.classList.add("editBtn");
   editBtn.setAttribute("data-type", "edit");
@@ -60,7 +85,7 @@ function paintToDoList(toDo, toDoId, checked) {
   checkBox.setAttribute("type", "checkbox");
   const toDoObj = {
     toDoId: toDoId,
-    toDoText: toDo,
+    toDoText: toDo.trim(),
     checked: checked,
   };
   li.setAttribute("data-id", `${toDoId}`);
