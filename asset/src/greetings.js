@@ -13,8 +13,14 @@ function handleSubmitGreetings() {
   showGreetings();
 }
 
+function greetingsGuest() {
+  greetings.style.display = "block";
+  greetings.innerText = `안녕하세요, Guest님`;
+}
+
 function init() {
   formLogin.addEventListener("submit", handleSubmitGreetings);
+  loginBtnGuest.addEventListener("click", greetingsGuest);
 }
 
 init();

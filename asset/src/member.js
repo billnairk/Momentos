@@ -1,9 +1,11 @@
 // member.js 기능 (초기 로그인 화면)
 // 0. LOGIN & GUEST LOGIN -> .js-member(로그인창) 사라짐
 // 1. ID & PW 저장소에 저장
+// (5/02 미구현)
 
 const member = document.querySelector(".js-member"),
-  loginBtn = document.querySelector(".member__login__btn"),
+  loginBtnMember = document.querySelector(".js-loginmember"),
+  loginBtnGuest = document.querySelector(".js-loginguest"),
   inputId = document.querySelector(".login-id"),
   inputPw = document.querySelector(".login-pw"),
   formLogin = document.querySelector(".form__login");
@@ -28,7 +30,6 @@ function memberLoad() {
 
 // 함수 이름 더 나은 것으로 바꾸기
 function registerOrLogin(id, pwd) {
-  member.style.color = "blue";
   member.style.display = "none";
   const memberObj = {
     id,
@@ -44,6 +45,10 @@ function registerOrLogin(id, pwd) {
   inputPw.value = "";
 }
 
+function loginGuest() {
+  member.style.display = "none";
+}
+
 function handleSubmitMember(e) {
   e.preventDefault();
   registerOrLogin(inputId.value, inputPw.value);
@@ -52,6 +57,7 @@ function handleSubmitMember(e) {
 function init() {
   memberLoad();
   formLogin.addEventListener("submit", handleSubmitMember);
+  loginBtnGuest.addEventListener("click", loginGuest);
 }
 
 init();

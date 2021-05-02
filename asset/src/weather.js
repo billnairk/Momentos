@@ -58,6 +58,7 @@ function paintWeather() {
 
 function init() {
   formLogin.addEventListener("submit", paintWeather);
+  loginBtnGuest.addEventListener("click", paintWeather);
   loadcoords();
 }
 

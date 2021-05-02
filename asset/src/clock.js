@@ -20,6 +20,7 @@ function handleSubmitClock() {
 
 function init() {
   formLogin.addEventListener("submit", handleSubmitClock);
+  loginBtnGuest.addEventListener("click", handleSubmitClock);
   setInterval(loadClock, 1000);
 }
 
