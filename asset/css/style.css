@@ -1,6 +1,9 @@
 :root {
   /* Color */
   --color-gray: #bcbcbc;
+  --color-background: rgba(0, 0, 0, 0.5);
+  --bd-filter: blur(4px); /* backdrop-filter */
+  --box-sd: 0 4px 16px 0 rgba(216, 217, 231, 0.37); /* box-shadow */
 }
 
 .main--center {

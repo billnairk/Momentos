@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="asset/css/greetings.css" />
     <link rel="stylesheet" href="asset/css/todolist.css" />
     <link rel="stylesheet" href="asset/css/background.css" />
+    <link rel="stylesheet" href="asset/css/weather.css" />
     <meta charset="UTF-8" />
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>Momentos</title>
@@ -31,22 +32,31 @@
         <div class="guest__login__btn">GUEST LOGIN</div>
       </div>
       <div class="weather js-weather"></div>
-      <div class="clock js-clock"></div>
+      <h1 class="clock js-clock"></h1>
       <div class="greetings js-greetings"></div>
       <div class="todolist--main js-todolist--main">
-        <div class="todolist__title js-todolist__title">To Do List</div>
-        <div class="todo__form__input">
-          <form action="" class="todo-form js-todoform">
-            <input
-              type="text"
-              class="todoinput js-todoinput"
-              placeholder="할 일"
-              required
-            />
-          </form>
-        </div>
-        <div class="todolist-order js-todos-order">
-          <ul class="todolist__ul js-todolist__ul"></ul>
+        <div class="todolist__title-container">
+          <div class="todolist__title js-todolist__title">
+            <div class="todolist__title--text">To Do List</div>
+            <span class="todolist__title--btn">
+              <i class="fas fa-chevron-down js-titlebtn"></i>
+            </span>
+          </div>
+          <div class="todolist__ul-container js-ulcontainer">
+            <div class="todo__form__input">
+              <form action="" class="todo-form js-todoform">
+                <input
+                  type="text"
+                  class="todoinput js-todoinput"
+                  placeholder="할 일"
+                  required
+                />
+              </form>
+            </div>
+            <div class="todolist-order js-todos-order">
+              <ul class="todolist__ul js-todolist__ul"></ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -54,7 +64,11 @@
     <script src="asset/src/clock.js"></script>
     <script src="asset/src/greetings.js"></script>
     <script src="asset/src/todolist.js"></script>
-    <!-- <script src="asset/src/background.js"></script> -->
+    <script src="asset/src/background.js"></script>
     <script src="asset/src/weather.js"></script>
+    <script
+      src="https://kit.fontawesome.com/6478f529f2.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

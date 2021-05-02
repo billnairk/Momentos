@@ -13,7 +13,9 @@ function getWeather(lat, lon) {
     .then(function (json) {
       const tmperature = json.main.temp;
       const place = json.name;
-      weather.innerText = `${tmperature}℃ @ ${place}`;
+      const span = document.createElement("span");
+      weather.appendChild(span);
+      span.innerText = `${tmperature}℃ @ ${place}`;
     });
 }
 
@@ -50,7 +52,12 @@ function loadcoords() {
   }
 }
 
+function paintWeather() {
+  weather.style.display = "block";
+}
+
 function init() {
+  formLogin.addEventListener("submit", paintWeather);
   loadcoords();
 }
 

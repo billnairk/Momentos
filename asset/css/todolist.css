@@ -1,21 +1,59 @@
 .todolist--main {
   display: none;
-  width: 600px;
+  /* width: 600px; */
+}
+
+.todolist__title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .todolist__title {
-  border: 1px solid;
+  font-weight: 700;
   margin-top: 20px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 10px 0px 10px 0px;
   font-size: 32px;
   text-align: center;
+  color: white;
+  width: 400px;
 }
 
-.todo__form__input {
+.todolist__title--text {
+  margin-left: 40px;
+}
+
+.todolist__title--btn {
+  text-align: right;
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+.todolist__ul-container {
+  display: none;
+}
+
+.todo__form__input form {
+  padding: 20px 0px 0px 0px;
+  border-radius: 10px 10px 0px 0px;
+  margin-bottom: 0px;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.todolist-order {
+  width: 300px;
+  height: 200px;
+  overflow: auto;
+  border-radius: 0px 0px 10px 10px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(0px);
+}
+
+.todo-form {
   display: flex;
   margin: 15px 0px 15px 0px;
   flex-direction: column;
@@ -23,42 +61,64 @@
   align-items: center;
 }
 
-.todolist-order {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  border: 1px solid;
-  height: 200px;
-  overflow: auto;
+.todoinput {
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
 }
-.todolist-order input {
-  margin-bottom: 10px;
+
+.todoinput:focus {
+  outline: none;
+}
+
+.todoinput::placeholder {
+  color: var(--color-gray);
 }
 
 .todolist-order ul {
   margin: 0px;
-  padding: 0px;
+  padding: 30px 10px 10px 10px;
 }
 
 .todolist-order li {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: white;
   list-style: none;
+  margin-bottom: 10px;
+}
+
+.todolist-order li input[type="checkbox"] {
+  margin: 0px 10px 0px 0px;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
 }
 
 .editBtn {
   background: url(/asset/img/icon/edit.svg);
-  border: none;
+  filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(138deg)
+    brightness(111%) contrast(101%);
   width: 13px;
   height: 13px;
-  margin-left: 10px;
+  border: none;
+  color: white;
+  margin-left: 20px;
+  cursor: pointer;
 }
 
 .delBtn {
   background: url(/asset/img/icon/trash.svg);
+  filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(138deg)
+    brightness(111%) contrast(101%);
+  width: 15px;
+  height: 15px;
   border: none;
-  width: 13px;
-  height: 13px;
+  color: white;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .todolist__ul input {

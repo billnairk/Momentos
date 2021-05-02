@@ -3,7 +3,9 @@ const toDoListMain = document.querySelector(".js-todolist--main"),
   toDosOrder = document.querySelector(".js-todos-order"),
   toDoList = document.querySelector(".js-todolist__ul"),
   toDoForm = document.querySelector(".js-todoform"),
-  toDoInput = document.querySelector(".js-todoinput");
+  toDoInput = document.querySelector(".js-todoinput"),
+  toDoUlContainer = document.querySelector(".js-ulcontainer"),
+  toDoTitleOpen = document.querySelector(".js-titlebtn");
 
 const TODOS_LS = "todos";
 let toDos = [];
@@ -15,6 +17,7 @@ function saveToDos() {
 
 // 체크버튼(완료)
 function toDoChecked(target) {
+  console.log(target);
   // toDoId 값으로 오브젝트의 인덱스 값 추출
   const toDoIdFromIndex = toDos.findIndex(
     (i) => i.toDoId == target.parentNode.dataset.id
@@ -120,6 +123,17 @@ function handleSubmitToDoList() {
   loadToDos();
 }
 
+function toDoTitleBtn() {
+  const titleBtnStatus = toDoUlContainer.style.display;
+  if (titleBtnStatus == "" || titleBtnStatus == "none") {
+    toDoUlContainer.style.display = "block";
+    console.log(titleBtnStatus);
+  } else if (titleBtnStatus == "block") {
+    console.log("dhldksep");
+    toDoUlContainer.style.display = "none";
+  }
+}
+
 function loadToDos() {
   const loadedToDos = localStorage.getItem(TODOS_LS);
   if (loadedToDos !== null) {
@@ -133,6 +147,7 @@ function loadToDos() {
 function init() {
   formLogin.addEventListener("submit", handleSubmitToDoList);
   toDoForm.addEventListener("submit", handleSubmitToDo);
+  toDoTitleOpen.addEventListener("click", toDoTitleBtn);
   toDoList.addEventListener("click", (e) => {
     const target = e.target;
     if (target.dataset.type === "edit") {
