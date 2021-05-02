@@ -92,25 +92,18 @@
   justify-content: space-between;
   color: white;
   list-style: none;
-  margin-bottom: 10px;
-  margin-left: 20px;
+  margin: 0px 10px 10px 10px;
 }
 
-.todolist__ul button:nth-child(1),
-.todolist__ul button:nth-child(2) {
-  justify-content: flex-end;
+.todolist-order span {
+  outline: none;
 }
-
 
 .todolist-order li input[type="checkbox"] {
   margin: 0px 10px 0px 0px;
   cursor: pointer;
   width: 15px;
   height: 15px;
-}
-
-.todolist-order li span {
-  /* margin-right: 50px; */
 }
 
 .editBtn {

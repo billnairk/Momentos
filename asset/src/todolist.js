@@ -16,11 +16,12 @@ function saveToDos() {
 }
 
 // 체크버튼(완료)
+// target = input[type="checkbox"]
 function toDoChecked(target) {
-  console.log(target);
+  const div = target.parentNode
   // toDoId 값으로 오브젝트의 인덱스 값 추출
   const toDoIdFromIndex = toDos.findIndex(
-    (i) => i.toDoId == target.parentNode.dataset.id
+    (i) => i.toDoId == div.parentNode.dataset.id
   );
   if (target.classList.contains("checked")) {
     target.classList.remove("checked");
@@ -34,8 +35,10 @@ function toDoChecked(target) {
 }
 
 // 삭제버튼
+// target = delBtn
 function toDoDelete(target) {
-  const li = target.parentNode;
+  const div = target.parentNode
+  const li = div.parentNode;
   toDoList.removeChild(li);
   const refreshToDos = toDos.filter(function (toDo) {
     return parseInt(li.dataset.id) !== toDo.toDoId;
@@ -45,9 +48,12 @@ function toDoDelete(target) {
 }
 
 // 수정버튼
+// target = editBtn
 // selection은 target의 텍스트를 선택하고, 커서 위치를 정하기 위해 사용
 function toDoEdit(target) {
-  const content = target.previousSibling;
+  const div2 = target.parentNode; // div2 = 버튼 DIV
+  const div1 = div2.previousSibling; //div1 = span있는 태그
+  const content = div1.childNodes[1]; //span 태그
   content.setAttribute("contentEditable", "true");
   const caret = window.getSelection();
   caret.selectAllChildren(content);
@@ -55,7 +61,7 @@ function toDoEdit(target) {
   content.addEventListener("keydown", (typing) => {
     if (typing.key == "Enter") {
       const toDoIdFromIndex = toDos.findIndex(
-        (i) => i.toDoId == target.parentNode.dataset.id
+        (i) => i.toDoId == div2.parentNode.dataset.id
       );
       content.setAttribute("contentEditable", "false");
       toDos[toDoIdFromIndex].toDoText = content.innerText.trim();
@@ -64,7 +70,7 @@ function toDoEdit(target) {
   });
   content.addEventListener("blur", (typing) => {
     const toDoIdFromIndex = toDos.findIndex(
-      (i) => i.toDoId == target.parentNode.dataset.id
+      (i) => i.toDoId == div2.parentNode.dataset.id
     );
     content.setAttribute("contentEditable", "false");
     toDos[toDoIdFromIndex].toDoText = content.innerText.trim();
@@ -75,6 +81,8 @@ function toDoEdit(target) {
 
 function paintToDoList(toDo, toDoId, checked) {
   const li = document.createElement("li");
+  const leftColumn = document.createElement("div")
+  const rightColumn = document.createElement("div")
   const span = document.createElement("span");
   span.innerText = toDo.trim();
   span.setAttribute("class", "todo-content");
@@ -92,10 +100,12 @@ function paintToDoList(toDo, toDoId, checked) {
     checked: checked,
   };
   li.setAttribute("data-id", `${toDoId}`);
-  li.appendChild(checkBox);
-  li.appendChild(span);
-  li.appendChild(editBtn);
-  li.appendChild(delBtn);
+  leftColumn.appendChild(checkBox);
+  leftColumn.appendChild(span);
+  rightColumn.appendChild(editBtn);
+  rightColumn.appendChild(delBtn);
+  li.appendChild(leftColumn);
+  li.appendChild(rightColumn);
   toDoList.appendChild(li);
   toDos.push(toDoObj);
   if (checked === 1) {
@@ -147,7 +157,10 @@ function init() {
   toDoForm.addEventListener("submit", handleSubmitToDo);
   toDoTitleOpen.addEventListener("click", toDoTitleBtn);
   toDoList.addEventListener("click", (e) => {
+    // const div = e.target.parentNode
+    // const target = div.target;
     const target = e.target;
+    // console.log(target)
     if (target.dataset.type === "edit") {
       toDoEdit(target);
     } else if (target.dataset.type === "delete") {
