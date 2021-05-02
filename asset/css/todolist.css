@@ -34,7 +34,7 @@
 }
 
 .todolist__ul-container {
-  display: none;
+  visibility: hidden;
 }
 
 .todo__form__input form {
@@ -76,25 +76,41 @@
   color: var(--color-gray);
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .todolist-order ul {
   margin: 0px;
-  padding: 30px 10px 10px 10px;
+  padding: 20px 10px 10px 10px;
+  flex-direction: column;
 }
 
 .todolist-order li {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   color: white;
   list-style: none;
   margin-bottom: 10px;
+  margin-left: 20px;
 }
+
+.todolist__ul button:nth-child(1),
+.todolist__ul button:nth-child(2) {
+  justify-content: flex-end;
+}
+
 
 .todolist-order li input[type="checkbox"] {
   margin: 0px 10px 0px 0px;
   cursor: pointer;
   width: 15px;
   height: 15px;
+}
+
+.todolist-order li span {
+  /* margin-right: 50px; */
 }
 
 .editBtn {
@@ -107,6 +123,7 @@
   color: white;
   margin-left: 20px;
   cursor: pointer;
+  text-align: right;
 }
 
 .delBtn {

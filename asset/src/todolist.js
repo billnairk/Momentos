@@ -124,13 +124,11 @@ function handleSubmitToDoList() {
 }
 
 function toDoTitleBtn() {
-  const titleBtnStatus = toDoUlContainer.style.display;
-  if (titleBtnStatus == "" || titleBtnStatus == "none") {
-    toDoUlContainer.style.display = "block";
-    console.log(titleBtnStatus);
-  } else if (titleBtnStatus == "block") {
-    console.log("dhldksep");
-    toDoUlContainer.style.display = "none";
+  const titleBtnStatus = toDoUlContainer.style.visibility;
+  if (titleBtnStatus == "" || titleBtnStatus == "hidden") {
+    toDoUlContainer.style.visibility = "visible";
+  } else if (titleBtnStatus == "visible") {
+    toDoUlContainer.style.visibility = "hidden";
   }
 }
 

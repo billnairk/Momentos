@@ -10,14 +10,10 @@
   backdrop-filter: var(--bd-filter);
 }
 
-.member,
-.member__login__btn,
-.guest__login__btn,
-.login-id,
-.login-pw {
+.member{
   background-color: var(--color-background);
   box-shadow: var(--box-sd);
-  color: rgb(255, 255, 255, 0.8);
+  color: rgb(255, 255, 255, 0.5);
 }
 
 .member__login {
@@ -32,26 +28,26 @@
 
 .login-id,
 .login-pw {
+  display: block;
   outline: none;
   opacity: 0.6;
-  /* background-color: var(--color-background);
-  color: white; */
-  display: block;
   height: 20px;
   margin-bottom: 10px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
 }
 
 .member__login__btn {
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-  /* margin: 20px 0px 0px 20px; */
   margin: -10px 0px 0px 20px;
   width: 80px;
   height: 80px;
   border: 1px solid;
   cursor: pointer;
   border-radius: 3px;
+  background: none;
+  color: gray;
 }
 
 .guest__login__btn {
@@ -64,7 +60,7 @@
   border-radius: 5px;
   margin: 10px 0px 10px 0px;
   cursor: pointer;
-  /* background-color: white; */
+  color: gray
 }
 
 .js-member {

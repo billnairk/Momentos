@@ -2,7 +2,7 @@
   background-color: rgba(255, 255, 255, 0.5);
   text-align: center;
   border-radius: 15px;
-  padding: 5px 12px 3px 13px;
+  padding: 5px 13px 3px 13px;
   display: none;
 }
 
@@ -11,5 +11,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  opacity: 0.8;
+  opacity: 0.6;
+  font-weight: 700;
 }
